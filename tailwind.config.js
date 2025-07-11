@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+/** @type {import("tailwindcss").Config} */
 module.exports = {
   content: [
     "./app/**/*.{js,jsx,ts,tsx}",
@@ -9,13 +9,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Jakarta: ["Jakarta", "sans-serif"],
-        JakartaBold: ["Jakarta-Bold", "sans-serif"],
-        JakartaExtraBold: ["Jakarta-ExtraBold", "sans-serif"],
-        JakartaExtraLight: ["Jakarta-ExtraLight", "sans-serif"],
-        JakartaLight: ["Jakarta-Light", "sans-serif"],
-        JakartaMedium: ["Jakarta-Medium", "sans-serif"],
-        JakartaSemiBold: ["Jakarta-SemiBold", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
+        poppingExtraBold: ["Poppins-ExtraBold", "sans-serif"],
+        poppingBold: ["Poppins-Bold", "sans-serif"],
+        poppingSemiBold: ["Poppins-SemiBold", "sans-serif"],
+        poppingMedium: ["Poppins-Medium", "sans-serif"],
+        poppingRegular: ["Poppins-Regular", "sans-serif"],
+        poppingLight: ["Poppins-Light", "sans-serif"],
       },
       colors: {
         primary: {
@@ -60,7 +60,7 @@ module.exports = {
           600: "#E53E3E",
           700: "#C53030",
           800: "#9B2C2C",
-          900: "#742A2A",
+          900: "#A90808",
         },
         warning: {
           100: "#FFFBEB",

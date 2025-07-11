@@ -1,45 +1,73 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+// import { Tabs } from "expo-router";
+// import React from "react";
+// import { ImageSourcePropType, Platform, View } from "react-native";
+// import home from "../../assets/icons/home.png";
+// import scan from "../../assets/icons/scan.png";
+// import discount from "../../assets/icons/discount.png";
+//
+// const TabIcon = ({
+//   source,
+//   focused,
+// }: {
+//   source: ImageSourcePropType;
+//   focused: boolean;
+// }) => (
+//   <View>
+//     <View>
+//       <Image source={source} />
+//     </View>
+//   </View>
+// );
+// const Layout = () => {
+//   return (
+//     <Tabs initialRouteName="yolo pay" screenOptions={{}}>
+//       <Tabs.Screen
+//         name="home"
+//         options={{
+//           title: "Home",
+//           headerShown: false,
+//           tabBarIcon: ({ focused }) => (
+//             <TabIcon source={home} focused={focused} />
+//           ),
+//         }}
+//       />
+//       <Tabs.Screen
+//         name="yolo pay"
+//         options={{
+//           title: "yolo pay",
+//           headerShown: false,
+//           tabBarIcon: ({ focused }) => (
+//             <TabIcon source={scan} focused={focused} />
+//           ),
+//         }}
+//       />
+//       <Tabs.Screen
+//         name="ginie"
+//         options={{
+//           title: "ginie",
+//           headerShown: false,
+//           tabBarIcon: ({ focused }) => (
+//             <TabIcon source={discount} focused={focused} />
+//           ),
+//         }}
+//       />
+//     </Tabs>
+//   );
+// };
+// export default Layout;
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Tabs } from "expo-router";
+import CustomTabBar from "@/components/CustomTabBar";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
+      tabBar={(props) => <CustomTabBar {...props} />}
+      screenOptions={{ headerShown: false }}
+    >
+      <Tabs.Screen name="home" options={{ title: "home" }} />
+      <Tabs.Screen name="yoloPay" options={{ title: "yolo pay" }} />
+      <Tabs.Screen name="ginie" options={{ title: "ginie" }} />
     </Tabs>
   );
 }
